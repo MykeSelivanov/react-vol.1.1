@@ -5,9 +5,9 @@ import React from 'react';
 
 class ClassComponent extends React.Component {
     // constructor is optional
-    constructor() {
-        super()
-    }
+    // constructor() {
+    //     super()
+    // }
 
     render() {
         console.log(`props from classComponent`, this.props);
