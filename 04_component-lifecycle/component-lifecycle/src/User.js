@@ -21,7 +21,11 @@ export default class User extends Component {
                 {/* Loop users from state and show name and email. Use map() */}
                 <ol>
                     { users.map((user) => {
-                        return <li key={user.id}>Name: {user.name} - Email: {user.email}</li>
+                        return ( <li key={user.id}> Name: {user.name} <br></br>
+                                                    Email: {user.email} <br></br>
+                                                    UserID: {user.id}
+                                                </li>
+                                )
                     })}
                 </ol>
             </div>
