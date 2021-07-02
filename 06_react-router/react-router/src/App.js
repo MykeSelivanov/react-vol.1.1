@@ -4,26 +4,15 @@ import {
   HashRouter,
   Route,
   Switch,
-  Link
+  Link,
+  useHistory,
+  useLocation,
+  useParams
 } from 'react-router-dom';
 import Nav from './Nav';
 import Home from './Home';
 import About from './About';
-
-const studentsAPI = {
-  students: [
-    { number: 1, name: 'John', class: 'A' },
-    { number: 2, name: 'Doe', class: 'B' },
-    { number: 3, name: 'Ryan', class: 'C' },
-    { number: 4, name: 'Pete', class: 'D' },
-  ],
-  getAll() {
-    return this.students
-  },
-  getStudent(id) {
-    return this.students.filter((student) => student.number === Number(id))
-  }
-};
+import studentsAPI from './students-data';
 
 const AllStudents = (props) => {
   console.log(props);
@@ -39,12 +28,25 @@ const AllStudents = (props) => {
 const StudentDetails = (props) => {
   console.log(props);
   console.log(props.location.search); // query params
+  // get single student
   const student = studentsAPI.getStudent(props.match.params.id);
+  // return (
+  //   <div>
+  //     <button onClick={() => props.history.goBack()}>Go back</button>
+  //     <button onClick={() => props.history.push('/')}>Go to Home page</button>
+  //     <h1>Student ID: {props.match.params.id}</h1>
+  //     <h1>Student Name: {student[0].name}</h1>
+  //   </div>
+  // )
+
+  // HOOK Version -----
+  const history = useHistory();
+  const {id} = useParams();
   return (
     <div>
-      <button onClick={() => props.history.goBack()}>Go back</button>
-      <button onClick={() => props.history.push('/')}>Go to Home page</button>
-      <h1>Student ID: {props.match.params.id}</h1>
+      <button onClick={() => history.goBack()}>Go back</button>
+      <button onClick={() => history.push('/')}>Go to Home page</button>
+      <h1>Student ID: {id}</h1>
       <h1>Student Name: {student[0].name}</h1>
     </div>
   )
