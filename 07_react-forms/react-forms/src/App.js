@@ -24,7 +24,7 @@ function App() {
         <h1>Forms in React</h1>
       </header>
 
-      <form>
+      {/* <form>
         <label>Name:</label> <br />
         <input
           type="text"
@@ -44,7 +44,7 @@ function App() {
           placeholder="Message"
           onChange={handleMessageInput}
           value={message} />
-      </form>
+      </form> */}
 
       <p>Multiple Handling</p>
       <p>---------------------------</p>

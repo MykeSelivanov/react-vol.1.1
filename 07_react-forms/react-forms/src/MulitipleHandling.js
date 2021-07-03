@@ -1,49 +1,95 @@
 import './App.css';
 import { useState } from 'react';
 
+const initialValues = {
+    name: '',
+    lastname: '',
+    message: ''
+}
+
 function MultipleHandling() {
 
-  const [name, setName] = useState('');
-  const [lastName, setLastname] = useState('');
-  const [message, setMessage] = useState('');
+    const [values, setValues] = useState(initialValues);
+    const handleValues = (event) => {
+        const { name, value } = event.target;
 
-  const handleNameInput = (event) => {
-    setName(event.target.value);
-  }
-  const handleLastnameInput = (event) => {
-    setName(event.target.value);
-  }
-  const handleMessageInput = (event) => {
-    setMessage(event.target.value);
-  }
+        setValues({
+            ...values,
+            [name]: value,
+        })
+    }
 
-  return (
-    <div className="App">
-    
-      <form>
-        <label>Name:</label> <br />
-        <input
-          type="text"
-          placeholder="Name"
-          onChange={handleNameInput}
-          value={name} />
+    // select handler
+    const [color, setColor] = useState('blue');
+    const handleColorChange = (event) => {
+        setColor(event.target.value);
+    }
 
-        <label>Lastname:</label> <br />
-        <input
-          type="text"
-          placeholder="Lastname"
-          onChange={handleLastnameInput}
-          value={lastName} />
+    // checkbox handler
+    const [acceptedAgreement, setAcceptedAgreement] = useState(false);
+    const handleAcceptAgreement = (event) => {
+        setAcceptedAgreement((acceptedAgreement) => !acceptedAgreement);
+    }
 
-        <textarea
-          type="text"
-          placeholder="Message"
-          onChange={handleMessageInput}
-          value={message} />
-      </form>
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        // simple validation
+        console.log(values);
+        if (values.name === '') {
+            alert('PLease type name!')
+        } else if (acceptedAgreement === false) {
+            alert("Accept our agreement!");
+        } else {
+            alert('Form Submitted');
+        }
+    }
 
-    </div>
-  );
+
+    return (
+        <div className="App">
+
+            <form onSubmit={handleSubmit}>
+                <label>Name:</label> <br />
+                <input
+                    name="name"
+                    type="text"
+                    placeholder="Name"
+                    onChange={handleValues}
+                    value={values.name} />
+
+                <label>Lastname:</label> <br />
+                <input
+                    name="lastname"
+                    type="text"
+                    placeholder="Lastname"
+                    onChange={handleValues}
+                    value={values.lastName} />
+
+                <textarea
+                    name="message"
+                    type="text"
+                    placeholder="Message"
+                    onChange={handleValues}
+                    value={values.message} />
+
+                <label>Desired color:</label>
+                <select value={color} onChange={handleColorChange}>
+                    <option value='blue'>Blue</option>
+                    <option value='red'>Red</option>
+                    <option value='black'>Black</option>
+                </select> <br />
+
+                <label>I accept the agreement</label>
+                <input
+                    checked={acceptedAgreement}
+                    onChange={handleAcceptAgreement}
+                    type="checkbox"
+                />
+                <button type="submit">Submit</button>
+            </form>
+
+        </div>
+    );
 }
 
 export default MultipleHandling;
