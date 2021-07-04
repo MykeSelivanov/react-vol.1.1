@@ -16,11 +16,12 @@ function App() {
   // handle user search input
   // Hint: onChange, event.target.value
   const handleUserInput = (event) => {
-      
+
   }
 
   // filter data based on search input
 
+  
 
   // filter data to show completed only
 
