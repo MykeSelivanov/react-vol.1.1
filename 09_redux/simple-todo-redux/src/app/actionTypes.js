@@ -1,0 +1,5 @@
+export const actionTypes = {
+    ADDTODO: "ADDTODO",
+    COMPLETETODO: "COMPLETETODO",
+    DELETETODO: "DELETETODO"
+}
