@@ -1,0 +1,28 @@
+{
+  "pets": [
+    {
+      "id": 1,
+      "name": "A",
+      "type": "Dog",
+      "imageUrl": "https://cdn.mos.cms.futurecdn.net/ZvueiLL2vdwoHWHjCRuQCW-1200-80.jpg"
+    },
+    {
+      "id": 2,
+      "name": "B",
+      "type": "Dog",
+      "imageUrl": "https://cdn.mos.cms.futurecdn.net/ZvueiLL2vdwoHWHjCRuQCW-1200-80.jpg"
+    },
+    {
+      "id": 3,
+      "name": "C",
+      "type": "Cat",
+      "imageUrl": "https://ichef.bbci.co.uk/news/976/cpsprodpb/09C5/production/_116210520_neo4_976.jpg"
+    },
+    {
+      "id": 4,
+      "name": "D",
+      "type": "Dog",
+      "imageUrl": "https://cdn.mos.cms.futurecdn.net/ZvueiLL2vdwoHWHjCRuQCW-1200-80.jpg"
+    }
+  ]
+}

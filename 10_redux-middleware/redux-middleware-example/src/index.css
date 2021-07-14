@@ -11,3 +11,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.pets {
+  background-color: beige;
+  border-bottom: 1px solid black;
+  padding: 20px;
+}
+
+.pets img {
+  height: 6em;
+  width: 6em;
+}
